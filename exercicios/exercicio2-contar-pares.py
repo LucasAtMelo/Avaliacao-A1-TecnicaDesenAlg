@@ -8,15 +8,19 @@ print("""
 escolha = int(input('Digite a forma como você quer contar: ')) # escolha do usuário atribuido a uma váriavel 
 
 if escolha == 1:  #se a escolha for com For 
+    print('Método For escolhido')
     for contador in range(1, 101, 1): #o contador for conta de 1 até 100(descartando 1 ) com passo 1 
-        print(contador) #mostra o passo atual do laço 
+        if contador % 2 == 0: #se o resto da divisão por 2 for 0()
+            print(contador) #mostra o passo atual do laço 
         sleep(0.5) #espera metade de um segundo 
     print('Fim :)') # mensagem final
 
 elif escolha == 2:  #se a escolha for com While 
+    print('Método While escolhido')
     contador = 0  #contador atribuido a uma variavel 
     while contador < 100: # enquanto o contador for menor que 100
         contador += 1  #adiciona um ao contador 
-        print(contador) #mostra o passo atual do laço 
+        if contador % 2 == 0: 
+            print(contador) #mostra o passo atual do laço 
         sleep(0.5) #espera metade de um segundo 
     print('Fim :)') # mensagem final 
