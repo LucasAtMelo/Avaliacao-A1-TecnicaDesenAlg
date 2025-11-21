@@ -28,11 +28,14 @@ while True: # loop infinito
 
     elif escolha == 3: # escolha de remover aluno 
         print('Remover um aluno escolhido')
-        for i, aluno in enumerate(alunos): # também itera também a lista mostrando índice + 1 e item 
-            print(f'{i + 1} - {aluno}') 
-        excluido = int(input('Número do aluno à ser excluido: ')) - 1 # escolha de exclusão do usuário -1 para adequar com os índices(antes somados com 1)
-        print(f'Aluno(a) {alunos[excluido]} removido da lista') # confirmação do aluno excluido 
-        alunos.pop(excluido) # aluno exlcuido 
+        if alunos:
+            for i, aluno in enumerate(alunos): # também itera também a lista mostrando índice + 1 e item 
+                print(f'{i + 1} - {aluno}') 
+            excluido = int(input('Número do aluno à ser excluido: ')) - 1 # escolha de exclusão do usuário -1 para adequar com os índices(antes somados com 1)
+            print(f'Aluno(a) {alunos[excluido]} removido da lista') # confirmação do aluno excluido 
+            alunos.pop(excluido) # aluno exlcuido
+        else:
+            print('Nenhum aluno cadastrado') 
 
     elif escolha == 4: #escolha de sair do sistema 
         print('Saindo do sistema! ')

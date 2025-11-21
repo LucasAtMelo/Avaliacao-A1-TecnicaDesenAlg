@@ -27,12 +27,15 @@ while True: # loop infinito
     
     elif escolha == 3: # escolha de remoção 
         print('Remover item escolhido') 
-        nome_produto = input('Nome do produto: ') # nome do produto a ser removido 
-        if nome_produto in produtos: # se o produto do usuário estiver cadastrado 
-            print(f'Produto {nome_produto} de valor R${produtos[nome_produto]} removido!') # confirmação da remoção com valor 
-            produtos.pop(nome_produto) # remoção do item 
-        else: # se o produto não for cadastrado 
-            print('Produto não encontrado') 
+        if len(produtos) > 0:
+            nome_produto = input('Nome do produto: ') # nome do produto a ser removido 
+            if nome_produto in produtos: # se o produto do usuário estiver cadastrado 
+                print(f'Produto {nome_produto} de valor R${produtos[nome_produto]} removido!') # confirmação da remoção com valor 
+                produtos.pop(nome_produto) # remoção do item 
+            else: # se o produto não for cadastrado 
+                print('Produto não encontrado')
+        else:
+            print('Nenhum produto cadastrado!')
     
     elif escolha == 4: # escolha de sair do sistema 
         print('Saindo do sistema!')
