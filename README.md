@@ -1,49 +1,70 @@
-💻 Técnica de Desenvolvimento de Algoritmos - Prova A1
-Repositório dedicado a exercícios básicos em Python, desenvolvidos para a avaliação regimental (A1) da disciplina "Técnica de Desenvolvimento de Algoritmos" da UDF.
+# 💻 Técnica de Desenvolvimento de Algoritmos - Prova A1
 
-📂 Organização do Repositório
-O diretório exercicios/ contém todos os programas desenvolvidos para a avaliação.
+Repositório dedicado a exercícios básicos em Python, desenvolvidos para a avaliação regimental (A1) da disciplina **Técnica de Desenvolvimento de Algoritmos** da UDF.
+
+---
+
+## 📂 Organização do Repositório
+
+O diretório `exercicios/` contém todos os programas desenvolvidos para a avaliação.
 
 exercicios/
 ├── exercicio1-verificacao-idade.py
 ├── exercicio2-contar-pares.py
 ├── exercicio3-lista-alunos.py
 └── exercicio4-cadastro-produtos.py
-✨ Detalhamento dos Exercícios
-Cada arquivo Python implementa uma funcionalidade específica, conforme detalhado abaixo:
 
-1. exercicio1-verificacao-idade.py
-Tema: Estrutura Condicional Simples.
+---
 
-Descrição: O programa solicita a idade do usuário. Em seguida, verifica se a idade é igual ou superior à maioridade legal (>= 18). Se for maior de idade, a entrada ao evento é permitida; caso contrário, é negada.
+## ✨ Detalhamento dos Exercícios
 
-2. exercicio2-contar-pares.py
-Tema: Estrutura de Repetição.
+Cada arquivo Python implementa uma funcionalidade específica, conforme descrito abaixo:
 
-Descrição: O programa realiza uma contagem de 0 a 100, exibindo na tela somente os números pares. Os números ímpares são ignorados durante a iteração.
+---
 
-3. exercicio3-lista-alunos.py
-Tema: Manipulação de Listas (CRUD Básico) e Menu de Opções.
+### 1. `exercicio1-verificacao-idade.py`
+**Tema:** Estrutura Condicional Simples.
 
-Descrição: Implementa um sistema de menu interativo que permite ao usuário gerenciar uma lista de alunos. As operações disponíveis são:
+**Descrição:**  
+O programa solicita a idade do usuário e verifica se ela é maior ou igual à maioridade legal (≥ 18). Caso seja, a entrada ao evento é permitida; caso contrário, é negada.
 
-Consultar a lista de alunos atual.
+---
 
-Adicionar novos alunos à lista.
+### 2. `exercicio2-contar-pares.py`
+**Tema:** Estrutura de Repetição.
 
-Remover alunos existentes da lista.
+**Descrição:**  
+Realiza uma contagem de 0 a 100, exibindo somente os números pares. Números ímpares são ignorados durante a iteração.
 
-Encerrar o programa.
+---
 
-4. exercicio4-cadastro-produtos.py
-Tema: Manipulação de Dicionários (CRUD Básico) e Menu de Opções.
+### 3. `exercicio3-lista-alunos.py`
+**Tema:** Manipulação de Listas (CRUD Básico) e Menu de Opções.
 
-Descrição: Implementa um sistema de menu interativo para gerenciar um dicionário de produtos, onde a chave é o nome do produto e o valor é o seu preço. As operações disponíveis são:
+**Descrição:**  
+Sistema com menu interativo para gerenciamento de uma lista de alunos. Funções disponíveis:
 
-Adicionar um novo produto e seu valor.
+- Consultar lista de alunos  
+- Adicionar novos alunos  
+- Remover alunos existentes  
+- Encerrar o programa
 
-Remover um produto pelo nome.
+---
 
-Consultar todos os produtos e seus respectivos valores cadastrados.
+### 4. `exercicio4-cadastro-produtos.py`
+**Tema:** Manipulação de Dicionários (CRUD Básico) e Menu de Opções.
 
-Encerrar o programa.
+**Descrição:**  
+Sistema com menu interativo para gerenciamento de um dicionário de produtos, onde:
+
+- **Chave:** nome do produto  
+- **Valor:** preço do produto  
+
+Operações disponíveis:
+
+- Adicionar um novo produto  
+- Remover um produto pelo nome  
+- Consultar produtos e preços cadastrados  
+- Encerrar o programa
+
+---
