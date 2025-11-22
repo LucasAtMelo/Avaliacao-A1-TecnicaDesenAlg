@@ -12,10 +12,10 @@ exercicios/
 pasta **exercicios/** comporta todos os exercícios desenvolvidos 
 ---
 ## Exercícios descritos 
-### **1. exercicio1-verificacao-idade.py **
+### 1. **exercicio1-verificacao-idade.py**
 O programa solicita ao usuário sua idade, se maior de idade legamente, sua entrada é permitida ao evento. Caso contrário, não. 
 
-###2. **exercicio2-contar-pares.py **
+###2. **exercicio2-contar-pares.py**
 O programa conta de 0 a 100, pulando os números ímpares, exibindo somente os pares.
 
 ### 3. **exercicio3-lista-alunos.py**
