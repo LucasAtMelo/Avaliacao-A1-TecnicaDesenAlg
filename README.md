@@ -199,7 +199,7 @@ Operações disponíveis:
 ```mermaid
 flowchart TD
     %% --- INICIALIZAÇÃO ---
-    Start([Início]) --> Init[Dicionário: produtos = { }]
+    Start([Início]) --> Init["Dicionário: produtos = { }"]
     Init --> Menu
 
     %% --- LOOP PRINCIPAL ---
@@ -209,33 +209,33 @@ flowchart TD
     3. Remover
     4. Sair"/]
     
-    Menu --> InputChoice[/Ler: Opção Escolhida/]
-    InputChoice --> Decision{Qual Opção?}
+    Menu --> InputChoice[/"Ler: Opção Escolhida"/]
+    InputChoice --> Decision{"Qual Opção?"}
 
     %% --- OPÇÃO 1: VISUALIZAR ---
-    Decision -- 1 --> CheckEmpty1{Dic. Vazio?}
+    Decision -- 1 --> CheckEmpty1{"Dic. Vazio?"}
     CheckEmpty1 -- Sim --> MsgEmpty1[/"Print: 'Nenhum produto'"/]
-    CheckEmpty1 -- Não --> ShowDict[/"Loop: Print Chave (Nome) e Valor (R$)"/]
+    CheckEmpty1 -- Não --> ShowDict[/"Loop: Print Chave e Valor"/]
     
     MsgEmpty1 --> Menu
     ShowDict --> Menu
 
     %% --- OPÇÃO 2: ADICIONAR ---
-    Decision -- 2 --> InputData[/Ler: Nome e Valor/]
-    InputData --> AddDict[produtos[Nome] = Valor]
+    Decision -- 2 --> InputData[/"Ler: Nome e Valor"/]
+    InputData --> AddDict["produtos[Nome] = Valor"]
     AddDict --> MsgAdd[/"Print: 'Inserção concluída'"/]
     
     MsgAdd --> Menu
 
     %% --- OPÇÃO 3: REMOVER ---
-    Decision -- 3 --> CheckEmpty2{Dic. Vazio?}
+    Decision -- 3 --> CheckEmpty2{"Dic. Vazio?"}
     
     CheckEmpty2 -- Sim --> MsgEmpty2[/"Print: 'Nenhum produto'"/]
     
-    CheckEmpty2 -- Não --> InputRem[/Ler: Nome do Produto/]
+    CheckEmpty2 -- Não --> InputRem[/"Ler: Nome do Produto"/]
     InputRem --> CheckExist{"Nome existe no Dic?"}
     
-    CheckExist -- Sim --> PopItem[produtos.pop Nome]
+    CheckExist -- Sim --> PopItem["produtos.pop(Nome)"]
     PopItem --> MsgRemoved[/"Print: 'Produto Removido'"/]
     
     CheckExist -- Não --> MsgNotFound[/"Print: 'Produto não encontrado'"/]
