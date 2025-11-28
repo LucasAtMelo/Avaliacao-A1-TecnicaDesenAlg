@@ -51,38 +51,52 @@ Realiza uma contagem de 0 a 100, exibindo somente os números pares. Números í
 ## Fluxograma 
 ```mermaid
 flowchart TD
+    %% Nós de Início e Entrada
+    Start([Início]) --> Menu[/"Print: Menu (1. For, 2. While)"/]
+    Menu --> Input[/"Input: Ler 'escolha'"/]
+    Input --> MainDecision{Escolha?}
 
-    A([Início]) --> B[Mostrar menu: 1-For / 2-While]
-    B --> C[Usuário escolhe]
-    C --> D{escolha == 1?}
+    %% === RAMO 1: LAÇO FOR ===
+    MainDecision -- "1" --> MsgFor[/"Print: 'Método For'"/]
+    MsgFor --> InitFor[Iniciar: range 1 a 100]
+    InitFor --> LoopFor{Há itens no range?}
     
-    %% Caminho FOR
-    D -->|Sim| E[Método For escolhido]
-    E --> F[Iniciar contador = 1]
-    F --> G{contador <= 100?}
-    G -->|Não| H[Fim do For]
-    G -->|Sim| I{contador é par?}
-    I -->|Sim| J[print(contador)]
-    I -->|Não| K[Ignorar número]
-    J --> L[contador += 1]
-    K --> L
-    L --> F
+    LoopFor -- Sim --> CheckParFor{"Contador % 2 == 0?"}
+    CheckParFor -- Sim --> PrintFor[/"Print: Contador"/]
+    CheckParFor -- Não --> SleepFor["Sleep(0.5)"]
     
-    %% Caminho WHILE
-    D -->|Não| M[Método While escolhido]
-    M --> N[contador = 0]
-    N --> O{contador < 100?}
-    O -->|Não| P[Fim do While]
-    O -->|Sim| Q[contador += 1]
-    Q --> R{contador é par?}
-    R -->|Sim| S[print(contador)]
-    R -->|Não| T[Ignorar número]
-    S --> N
-    T --> N
+    PrintFor --> SleepFor
+    SleepFor --> NextFor[Próximo item]
+    NextFor --> LoopFor
     
-    H --> U([Fim])
-    P --> U
+    LoopFor -- Não --> EndFor[/"Print: 'Fim : )'"/]
 
+    %% === RAMO 2: LAÇO WHILE ===
+    MainDecision -- "2" --> MsgWhile[/"Print: 'Método While'"/]
+    MsgWhile --> InitVar[contador = 0]
+    InitVar --> LoopWhile{contador < 100?}
+    
+    LoopWhile -- Sim --> IncWhile[contador += 1]
+    IncWhile --> CheckParWhile{"Contador % 2 == 0?"}
+    
+    CheckParWhile -- Sim --> PrintWhile[/"Print: Contador"/]
+    CheckParWhile -- Não --> SleepWhile["Sleep(0.5)"]
+    
+    PrintWhile --> SleepWhile
+    SleepWhile --> LoopWhile
+    
+    LoopWhile -- Não --> EndWhile[/"Print: 'Fim : )'"/]
+
+    %% === FINALIZAÇÃO ===
+    EndFor --> EndNode([Fim do Programa])
+    EndWhile --> EndNode
+    MainDecision -- Outro --> EndNode
+
+    %% Estilização (Opcional, mas ajuda na leitura)
+    style Start fill:#f9f,stroke:#333
+    style EndNode fill:#f9f,stroke:#333
+    style LoopFor fill:#ff9,stroke:#333
+    style LoopWhile fill:#ff9,stroke:#333
 ```
 
 ---
