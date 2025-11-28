@@ -30,13 +30,13 @@ O programa solicita a idade do usuário e verifica se ela é maior ou igual à m
 ## Fluxograma
 
 mermaid
-flowchart TD
-    A([Início]) --> B[Digite sua idade]
-    B --> C{idade >= 18?}
-    C -->|Sim| D[Entrada permitida]
-    C -->|Não| E[Entrada não permitida]
-    D --> F([Fim])
-    E --> F([Fim])
+    flowchart TD
+        A([Início]) --> B[Digite sua idade]
+        B --> C{idade >= 18?}
+        C -->|Sim| D[Entrada permitida]
+        C -->|Não| E[Entrada não permitida]
+        D --> F([Fim])
+        E --> F([Fim])
 
 ---
 
