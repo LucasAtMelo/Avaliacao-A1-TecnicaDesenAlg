@@ -52,38 +52,37 @@ Realiza uma contagem de 0 a 100, exibindo somente os números pares. Números í
 ```mermaid
 flowchart TD
 
-    A([Início]) --> B[Mostrar menu<br>1. For<br>2. While]
-    B --> C[escolha = input()]
+    A([Início]) --> B[Mostrar menu: 1-For / 2-While]
+    B --> C[Usuário escolhe]
     C --> D{escolha == 1?}
-
-    %% --- Caminho FOR ---
-    D -->|Sim| E[Mostrar "Método For escolhido"]
-    E --> F{contador = 1 até 100}
-    F --> G{contador % 2 == 0?}
-    G -->|Sim| H[print(contador)]
-    G -->|Não| I[Ignorar número]
-    H --> J[Esperar 0.5s]
-    I --> J
-    J --> K{Mais números?}
-    K -->|Sim| F
-    K -->|Não| L[print("Fim :)")]
-
-    %% --- Caminho WHILE ---
-    D -->|Não| M[Mostrar "Método While escolhido"]
+    
+    %% Caminho FOR
+    D -->|Sim| E[Método For escolhido]
+    E --> F[Iniciar contador = 1]
+    F --> G{contador <= 100?}
+    G -->|Não| H[Fim do For]
+    G -->|Sim| I{contador é par?}
+    I -->|Sim| J[print(contador)]
+    I -->|Não| K[Ignorar número]
+    J --> L[contador += 1]
+    K --> L
+    L --> F
+    
+    %% Caminho WHILE
+    D -->|Não| M[Método While escolhido]
     M --> N[contador = 0]
     N --> O{contador < 100?}
-    O -->|Sim| P[contador += 1]
-    P --> Q{contador % 2 == 0?}
-    Q -->|Sim| R[print(contador)]
-    Q -->|Não| S[Ignorar número]
-    R --> T[Esperar 0.5s]
-    S --> T
-    T --> O
-    O -->|Não| U[print("Fim :)")]
+    O -->|Não| P[Fim do While]
+    O -->|Sim| Q[contador += 1]
+    Q --> R{contador é par?}
+    R -->|Sim| S[print(contador)]
+    R -->|Não| T[Ignorar número]
+    S --> N
+    T --> N
+    
+    H --> U([Fim])
+    P --> U
 
-    %% --- Final ---
-    L --> V([Fim])
-    U --> V([Fim])
 ```
 
 ---
