@@ -39,7 +39,7 @@ flowchart TD
     C -->|Não| E[Entrada não permitida]
     D --> F([Fim])
     E --> F([Fim])
-
+``` 
 
 ---
 
