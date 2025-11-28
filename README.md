@@ -194,4 +194,70 @@ Operações disponíveis:
 - Consultar produtos e preços cadastrados  
 - Encerrar o programa
 
+## Fluxograma
+
+```mermaid
+flowchart TD
+    %% --- INICIALIZAÇÃO ---
+    Start([Início]) --> Init[Dicionário: produtos = { }]
+    Init --> Menu
+
+    %% --- LOOP PRINCIPAL ---
+    Menu[/"Mostrar Menu:
+    1. Visualizar
+    2. Adicionar
+    3. Remover
+    4. Sair"/]
+    
+    Menu --> InputChoice[/Ler: Opção Escolhida/]
+    InputChoice --> Decision{Qual Opção?}
+
+    %% --- OPÇÃO 1: VISUALIZAR ---
+    Decision -- 1 --> CheckEmpty1{Dic. Vazio?}
+    CheckEmpty1 -- Sim --> MsgEmpty1[/"Print: 'Nenhum produto'"/]
+    CheckEmpty1 -- Não --> ShowDict[/"Loop: Print Chave (Nome) e Valor (R$)"/]
+    
+    MsgEmpty1 --> Menu
+    ShowDict --> Menu
+
+    %% --- OPÇÃO 2: ADICIONAR ---
+    Decision -- 2 --> InputData[/Ler: Nome e Valor/]
+    InputData --> AddDict[produtos[Nome] = Valor]
+    AddDict --> MsgAdd[/"Print: 'Inserção concluída'"/]
+    
+    MsgAdd --> Menu
+
+    %% --- OPÇÃO 3: REMOVER ---
+    Decision -- 3 --> CheckEmpty2{Dic. Vazio?}
+    
+    CheckEmpty2 -- Sim --> MsgEmpty2[/"Print: 'Nenhum produto'"/]
+    
+    CheckEmpty2 -- Não --> InputRem[/Ler: Nome do Produto/]
+    InputRem --> CheckExist{"Nome existe no Dic?"}
+    
+    CheckExist -- Sim --> PopItem[produtos.pop Nome]
+    PopItem --> MsgRemoved[/"Print: 'Produto Removido'"/]
+    
+    CheckExist -- Não --> MsgNotFound[/"Print: 'Produto não encontrado'"/]
+    
+    MsgEmpty2 --> Menu
+    MsgRemoved --> Menu
+    MsgNotFound --> Menu
+
+    %% --- OPÇÃO 4: SAIR ---
+    Decision -- 4 --> MsgExit[/"Print: 'Saindo...'"/]
+    MsgExit --> BreakLoop((Break))
+    
+    %% --- FINALIZAÇÃO ---
+    Decision -- Outro --> Menu
+    BreakLoop --> MsgFinal[/"Print: 'Até a próxima'"/]
+    MsgFinal --> End([Fim do Programa])
+
+    %% --- ESTILIZAÇÃO ---
+    style Start fill:#f9f,stroke:#333
+    style End fill:#f9f,stroke:#333
+    style Menu fill:#e1f5fe,stroke:#01579b
+    style Decision fill:#fff9c4,stroke:#fbc02d
+    style CheckExist fill:#ffccbc,stroke:#bf360c
+```
 ---
