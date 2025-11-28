@@ -112,6 +112,70 @@ Sistema com menu interativo para gerenciamento de uma lista de alunos. Funções
 - Remover alunos existentes  
 - Encerrar o programa
 
+## Fluxograma 
+
+```mermaid
+flowchart TD
+    %% --- INICIALIZAÇÃO ---
+    Start([Início]) --> Init[Lista: alunos = ' ']
+    Init --> Menu
+
+    %% --- LOOP PRINCIPAL ---
+    Menu[/"Mostrar Menu:
+    1. Visualizar
+    2. Adicionar
+    3. Remover
+    4. Sair"/]
+    
+    Menu --> InputChoice[/Ler: Opção Escolhida/]
+    InputChoice --> Decision{Qual Opção?}
+
+    %% --- OPÇÃO 1: VISUALIZAR ---
+    Decision -- 1 --> CheckEmpty1{Lista Vazia?}
+    CheckEmpty1 -- Sim --> MsgEmpty1[/"Print: 'Não há alunos'"/]
+    CheckEmpty1 -- Não --> ShowList1[/"Loop: Exibir Nome e Índice"/]
+    
+    MsgEmpty1 --> Menu
+    ShowList1 --> Menu
+
+    %% --- OPÇÃO 2: ADICIONAR ---
+    Decision -- 2 --> InputName[/Ler: Nome do Aluno/]
+    InputName --> AppendList[alunos.append nome]
+    AppendList --> MsgSuccess2[/"Print: 'Inserção concluída'"/]
+    
+    MsgSuccess2 --> Menu
+
+    %% --- OPÇÃO 3: REMOVER ---
+    Decision -- 3 --> CheckEmpty2{Lista Vazia?}
+    
+    CheckEmpty2 -- Sim --> MsgEmpty2[/"Print: 'Nenhum aluno cadastrado'"/]
+    MsgEmpty2 --> Menu
+    
+    CheckEmpty2 -- Não --> ShowList3[/"Loop: Exibir Lista Atual"/]
+    ShowList3 --> InputRemove[/Ler: Número do Aluno/]
+    InputRemove --> CalcIndex[Index = Número - 1]
+    CalcIndex --> PopItem[alunos.pop Index]
+    PopItem --> MsgRemoved[/"Print: 'Aluno Removido'"/]
+    
+    MsgRemoved --> Menu
+
+    %% --- OPÇÃO 4: SAIR ---
+    Decision -- 4 --> MsgExit[/"Print: 'Saindo...'"/]
+    MsgExit --> BreakLoop((Break))
+    
+    %% --- FINALIZAÇÃO ---
+    Decision -- Outro --> Menu
+    BreakLoop --> MsgFinal[/"Print: 'Até a próxima'"/]
+    MsgFinal --> End([Fim do Programa])
+
+    %% --- ESTILIZAÇÃO ---
+    style Start fill:#f9f,stroke:#333
+    style End fill:#f9f,stroke:#333
+    style Menu fill:#e1f5fe,stroke:#01579b
+    style Decision fill:#fff9c4,stroke:#fbc02d
+    style BreakLoop fill:#ffccbc,stroke:#bf360c
+```
+
 ---
 
 ### 4. `exercicio4-cadastro-produtos.py`
